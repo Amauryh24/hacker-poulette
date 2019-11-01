@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Formulaire</title>
+</head>
+
+
+<body>
+
+    <div class="main-container">
+
+        <div class="content">
+
+            <h1>Raspberry Pi 4 </h1>
+            <h3>Accessory kits to build yourself</h3>
+            <ol>
+                <li>Faster</li>
+                <li>better connectivity</li>
+                <li>More memory</li>
+            </ol>
+        </div>
+        <div class="form">
+
+            <form action="postinfo">
+                <div>
+                    <label for="inputfirstname">Firstname :</label>
+                    <input class="form-control" type="text" name="name" value="John" id="inputfirstname"
+                        title="input field for the Firstname">
+                </div>
+                <div>
+                    <label for="inputlastname"> Lastname : </label>
+                    <input class="form-control" type="text" name="lastname" value="Doe" id="inputlastname"
+                        title="input field for the Lastname">
+                </div>
+                <div>
+
+                    <label for="radiofemale">Female</label>
+                    <input type="radio" name="gender" value="female" checked="checked" id="radiofemale"
+                        title="input radio for the gender female" />
+
+                    <label for="radiomale">Male</label>
+                    <input type="radio" name="gender" value="male" id="radiomale"
+                        title="input radio for the gender male" />
+
+                </div>
+                <div>
+                    <select name="country" id="selectcountry" title="List of your Country">
+                        <option value="Malta" title="Malta">Malta</option>
+                        <option value="Luxembourg" title="Luxembourg">Luxembourg</option>
+                        <option value="Cyprus" title="Cyprus">Cyprus</option>
+                        <option value="Estonia" title="Estonia">Estonia</option>
+                        <option value="Latvia" title="Latvia">Latvia</option>
+                        <option value="Slovenia" title="Slovenia">Slovenia</option>
+                        <option value="Lithuania" title="Lithuania">Lithuania</option>
+                        <option value="Croatia" title="Croatia">Croatia</option>
+                        <option value="Ireland" title="Ireland">Ireland</option>
+                        <option value="Slovakia" title="Slovania">Slovakia</option>
+                        <option value="Finland" title="Finland">Finland</option>
+                        <option value="Denmark" title="Denmark">Denmark</option>
+                        <option value="Bulgaria" title="Bulgaria">Bulgaria</option>
+                        <option value="Austria" title="Autria">Austria</option>
+                        <option value="Hungary" title="Hungary">Hungary</option>
+                        <option value="Sweden" title="sweden">Sweden</option>
+                        <option value="Portugal" title="Portugal">Portugal</option>
+                        <option value="Greece" title="Greece">Greece</option>
+                        <option value="Czech Republic" title="Czech Republic">Czech Republic</option>
+                        <option value="Belgium" title="Belgium">Belgium</option>
+                        <option value="Netherlands" title="Netherlands">Netherlands</option>
+                        <option value="Romania" title="Romania">Romania</option>
+                        <option value="Poland" title="Poland">Poland</option>
+                        <option value="Spain" title="Spain">Spain</option>
+                        <option value="Italy" title="Itali">Italy</option>
+                        <option value="France" title="France">France</option>
+                        <option value="United Kingdom" title="United Kingdom">United Kingdom</option>
+                        <option value="Germany" title="Germany">Germany</option>
+                    </select>
+
+                    <select name="subject" id="subject" title="List of subject">
+                        <option value="technical" title="Technical">Technical</option>
+                        <option value="repair" title="Repair">Repair</option>
+                        <option value="community" title="Community">Community</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="inputemail"> Email</label>
+                    <input class="form-control" type="text" name="email" value="johnDoe@Becode.org" id="inputemail">
+                </div>
+
+                <div>
+                    <label for="message">message :</label>
+                    <textarea name="message" id="message" cols="30" rows="10"></textarea>
+
+
+
+                </div>
+                <div>
+                    <button type="submit" value="Submit">Submit</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

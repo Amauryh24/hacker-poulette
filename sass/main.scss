@@ -1,0 +1,261 @@
+$colorOne : #F2588E;
+$colorTwo : #805463;
+$colorThree : #8a1f49;
+$colorstandard : white;
+
+#contact {
+    background-image: url("../images/raspberry-pi.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: 1s;
+    transition-timing-function: ease;
+
+
+    .main-container {
+        padding-top: 50px;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+
+        .content {
+            h1 {
+                color: $colorstandard;
+                text-shadow: 5px 3px 30px;
+                font-size: 48px;
+                font-weight: 900;
+            }
+
+            .about {
+
+
+                h3 {
+                    padding-top: 20px;
+                    color: $colorstandard;
+                    text-shadow: 5px 3px 30px;
+                    font-size: 22px;
+                    font-weight: 900;
+                }
+
+                ul {
+                    li {
+                        color: white;
+                        padding: 10px 30px;
+                        background-image: url(../images/icon-v.png);
+                        background-size: 10%;
+                        background-repeat: no-repeat;
+                        background-position-y: 7px;
+                        background-position-x: 3px;
+                        list-style-type: none;
+                        font-size: 20px;
+                    }
+                }
+            }
+
+
+        }
+
+        @keyframes form {
+            0% {
+                opacity: 0;
+                transform: translate(-300px, 0px) rotate(0deg);
+            }
+
+            90% {
+                opacity: 1;
+                transform: translate(5px, 0px) rotate(0deg);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translate(0px, 0px) rotate(0deg);
+            }
+        }
+
+        .content-form {
+            animation: form 1s ease-in-out;
+            background-color: rgba(0, 0, 0, 0.63);
+            padding: 40px 20px;
+            width: 30%;
+            box-shadow: 10px 10px 25px;
+
+            .titleform {
+                margin: 7px 0;
+                text-align: center;
+                color: white;
+                font-size: 18px;
+                font-weight: 900;
+                text-transform: uppercase;
+                letter-spacing: 0.3em;
+            }
+
+            #divfirstname,
+            #divemail {
+                position: relative;
+
+                img {
+                    position: absolute;
+                    top: 10px;
+                    right: 0;
+                    width: 30px;
+                    opacity: 0.5;
+                }
+            }
+
+            #divsubmit {
+                button {
+                    cursor: pointer;
+                    background-color: $colorThree;
+
+                    &:hover {
+                        background-color: $colorOne;
+                        opacity: 0.9;
+                    }
+                }
+
+            }
+
+            #inputfirstname,
+            #inputlastname,
+            #inputmail {
+                width: 100%;
+                height: 38px;
+                margin: 4px 0;
+            }
+
+            #subject,
+            #country {
+                width: 101%;
+                padding: 2px;
+                height: 38px;
+                margin: 4px 0;
+            }
+
+            #message {
+                width: 100%;
+                padding: 0;
+                height: 76px;
+                border: 2px solid white;
+                margin: 4px 0;
+                resize: none;
+            }
+
+            #submit {
+                width: 101%;
+                height: 38px;
+            }
+
+            .none {
+                display: none;
+            }
+
+            #gender {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .choicegender {
+                    color: white;
+                    text-transform: uppercase;
+                    letter-spacing: 0.2em;
+                    cursor: pointer;
+
+                }
+
+                #radiofemale,
+                #radiomale {
+                    width: 20px;
+                    height: 20px;
+                    margin-right: 25px;
+                }
+            }
+        }
+
+
+    }
+}
+
+@media screen and (max-width: 840px) {
+    #contact {
+        background-image: url("../images/raspberry-pi.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top 50% right 50%;
+        transition: 1s;
+        transition-timing-function: ease;
+
+        .main-container {
+            padding-top: 0;
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+            margin: 0 auto;
+
+            .content {
+                width: 50%;
+                margin: 0 auto;
+
+                h1 {
+                    color: $colorstandard;
+                    text-shadow: 5px 3px 30px;
+                    font-size: 34px;
+                    font-weight: 700;
+                }
+
+                .about {
+
+
+                    h3 {
+
+                        padding: 0;
+                        color: $colorstandard;
+                        text-shadow: 5px 3px 30px;
+                        font-size: 16px;
+                        font-weight: 900;
+                    }
+
+                    ul {
+                        padding: 0;
+
+                        li {
+                            color: white;
+                            padding: 10px 30px;
+                            background-image: url(../images/icon-v.png);
+                            background-size: 8%;
+                            background-repeat: no-repeat;
+                            background-position-y: 8px;
+                            background-position-x: 3px;
+                            list-style-type: none;
+                            font-size: 14px;
+                            width: 50%;
+
+                        }
+                    }
+                }
+
+
+            }
+
+            .content-form {
+                background-color: rgba(0, 0, 0, 0.63);
+                padding: 40px 20px;
+                width: 80%;
+                box-shadow: 10px 10px 25px;
+                margin: 0 auto;
+
+
+                .titleform {
+                    margin: 7px 0;
+                    text-align: center;
+                    color: white;
+                    font-size: 18px;
+                    font-weight: 900;
+                    text-transform: uppercase;
+                    letter-spacing: 0.3em;
+                }
+
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {}

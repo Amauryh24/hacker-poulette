@@ -1,0 +1,265 @@
+#contact {
+  background-image: url("../images/raspberry-pi.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  -webkit-transition: 1s;
+  transition: 1s;
+  -webkit-transition-timing-function: ease;
+          transition-timing-function: ease;
+}
+
+#contact .main-container {
+  padding-top: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+#contact .main-container .content h1 {
+  color: white;
+  text-shadow: 5px 3px 30px;
+  font-size: 48px;
+  font-weight: 900;
+}
+
+#contact .main-container .content .about h3 {
+  padding-top: 20px;
+  color: white;
+  text-shadow: 5px 3px 30px;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+#contact .main-container .content .about ul li {
+  color: white;
+  padding: 10px 30px;
+  background-image: url(../images/icon-v.png);
+  background-size: 10%;
+  background-repeat: no-repeat;
+  background-position-y: 7px;
+  background-position-x: 3px;
+  list-style-type: none;
+  font-size: 20px;
+}
+
+@-webkit-keyframes form {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(-300px, 0px) rotate(0deg);
+            transform: translate(-300px, 0px) rotate(0deg);
+  }
+  90% {
+    opacity: 1;
+    -webkit-transform: translate(5px, 0px) rotate(0deg);
+            transform: translate(5px, 0px) rotate(0deg);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0px, 0px) rotate(0deg);
+            transform: translate(0px, 0px) rotate(0deg);
+  }
+}
+
+@keyframes form {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(-300px, 0px) rotate(0deg);
+            transform: translate(-300px, 0px) rotate(0deg);
+  }
+  90% {
+    opacity: 1;
+    -webkit-transform: translate(5px, 0px) rotate(0deg);
+            transform: translate(5px, 0px) rotate(0deg);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0px, 0px) rotate(0deg);
+            transform: translate(0px, 0px) rotate(0deg);
+  }
+}
+
+#contact .main-container .content-form {
+  -webkit-animation: form 1s ease-in-out;
+          animation: form 1s ease-in-out;
+  background-color: rgba(0, 0, 0, 0.63);
+  padding: 40px 20px;
+  width: 30%;
+  -webkit-box-shadow: 10px 10px 25px;
+          box-shadow: 10px 10px 25px;
+}
+
+#contact .main-container .content-form .titleform {
+  margin: 7px 0;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+}
+
+#contact .main-container .content-form #divfirstname,
+#contact .main-container .content-form #divemail {
+  position: relative;
+}
+
+#contact .main-container .content-form #divfirstname img,
+#contact .main-container .content-form #divemail img {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  width: 30px;
+  opacity: 0.5;
+}
+
+#contact .main-container .content-form #divsubmit button {
+  cursor: pointer;
+  background-color: #8a1f49;
+}
+
+#contact .main-container .content-form #divsubmit button:hover {
+  background-color: #F2588E;
+  opacity: 0.9;
+}
+
+#contact .main-container .content-form #inputfirstname,
+#contact .main-container .content-form #inputlastname,
+#contact .main-container .content-form #inputmail {
+  width: 100%;
+  height: 38px;
+  margin: 4px 0;
+}
+
+#contact .main-container .content-form #subject,
+#contact .main-container .content-form #country {
+  width: 101%;
+  padding: 2px;
+  height: 38px;
+  margin: 4px 0;
+}
+
+#contact .main-container .content-form #message {
+  width: 100%;
+  padding: 0;
+  height: 76px;
+  border: 2px solid white;
+  margin: 4px 0;
+  resize: none;
+}
+
+#contact .main-container .content-form #submit {
+  width: 101%;
+  height: 38px;
+}
+
+#contact .main-container .content-form .none {
+  display: none;
+}
+
+#contact .main-container .content-form #gender {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#contact .main-container .content-form #gender .choicegender {
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  cursor: pointer;
+}
+
+#contact .main-container .content-form #gender #radiofemale,
+#contact .main-container .content-form #gender #radiomale {
+  width: 20px;
+  height: 20px;
+  margin-right: 25px;
+}
+
+@media screen and (max-width: 840px) {
+  #contact {
+    background-image: url("../images/raspberry-pi.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top 50% right 50%;
+    -webkit-transition: 1s;
+    transition: 1s;
+    -webkit-transition-timing-function: ease;
+            transition-timing-function: ease;
+  }
+  #contact .main-container {
+    padding-top: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin: 0 auto;
+  }
+  #contact .main-container .content {
+    width: 50%;
+    margin: 0 auto;
+  }
+  #contact .main-container .content h1 {
+    color: white;
+    text-shadow: 5px 3px 30px;
+    font-size: 34px;
+    font-weight: 700;
+  }
+  #contact .main-container .content .about h3 {
+    padding: 0;
+    color: white;
+    text-shadow: 5px 3px 30px;
+    font-size: 16px;
+    font-weight: 900;
+  }
+  #contact .main-container .content .about ul {
+    padding: 0;
+  }
+  #contact .main-container .content .about ul li {
+    color: white;
+    padding: 10px 30px;
+    background-image: url(../images/icon-v.png);
+    background-size: 8%;
+    background-repeat: no-repeat;
+    background-position-y: 8px;
+    background-position-x: 3px;
+    list-style-type: none;
+    font-size: 14px;
+    width: 50%;
+  }
+  #contact .main-container .content-form {
+    background-color: rgba(0, 0, 0, 0.63);
+    padding: 40px 20px;
+    width: 80%;
+    -webkit-box-shadow: 10px 10px 25px;
+            box-shadow: 10px 10px 25px;
+    margin: 0 auto;
+  }
+  #contact .main-container .content-form .titleform {
+    margin: 7px 0;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+  }
+}
+/*# sourceMappingURL=main.css.map */
