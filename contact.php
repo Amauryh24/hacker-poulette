@@ -1,3 +1,7 @@
+<?php
+session_start();
+ ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -12,28 +16,33 @@
 
 
 <body id="contact">
-
+   
     <div class="main-container">
-
         <div class="content">
-
             <h1>Raspberry Pi 4 </h1>
-
             <div class="about">
                 <h3>Accessory kits to build yourself</h3>
                 <ul>
                     <li>Faster</li>
                     <li>better connectivity</li>
                     <li>More memory</li>
+
                 </ul>
             </div>
         </div>
+
+
+
+
+
+
+
         <div class="content-form">
             <p class="titleform">Contact us</p>
-            <form action="postinfo">
+            <form action="post_contact.php" method="post">
                 <div id="divfirstname">
                     <label class="none" for="inputfirstname">Firstname :</label>
-                    <input type="text" name="name" value="John" placeholder="  Firstname" id="inputfirstname"
+                    <input type="text" name="name" placeholder="  Firstname" id="inputfirstname"
                         title="Enter Your Firstname">
                     <img src="./images/004-assistance.png" alt="image for the firsname" title="image for the firsname ">
                 </div>
@@ -111,8 +120,20 @@
 
                 </div>
                 <div id="divsubmit">
-                    <button id="submit" type="submit" value="Submit" title="form submissions">Submit</button>
+                    <button id="submit" type="submit" name="submit" value="validation"
+                        title="form submissions">validation</button>
                 </div>
+                <div class="error">
+                    <?php if (array_key_exists('errors', $_SESSION)):?>
+                    
+                    <p>
+                        <?= implode('<br>', $_SESSION['errors']); ?>
+                    </p>
+                </div>
+
+        <?php unset($_SESSION['errors']); endif; ?>
+
+
             </form>
         </div>
 

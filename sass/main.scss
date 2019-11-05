@@ -62,7 +62,7 @@ $colorstandard : white;
 
             90% {
                 opacity: 1;
-                transform: translate(5px, 0px) rotate(0deg);
+                transform: translate(10px, 0px) rotate(0deg);
             }
 
             100% {
@@ -72,7 +72,7 @@ $colorstandard : white;
         }
 
         .content-form {
-            animation: form 1s ease-in-out;
+            animation: form 0.7s ease-in-out;
             background-color: rgba(0, 0, 0, 0.63);
             padding: 40px 20px;
             width: 30%;
