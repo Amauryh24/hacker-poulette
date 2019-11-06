@@ -3,12 +3,18 @@ $colorTwo : #805463;
 $colorThree : #8a1f49;
 $colorstandard : white;
 
+@font-face {
+    font-family: "Bellota";
+    src: url(../fonts/bellota/Bellota-Regular.otf) format('truetype');
+}
+
 #contact {
     background-image: url("../images/raspberry-pi.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     transition: 1s;
     transition-timing-function: ease;
+    font-family: 'Bellota';
 
 
     .main-container {
@@ -26,8 +32,6 @@ $colorstandard : white;
             }
 
             .about {
-
-
                 h3 {
                     padding-top: 20px;
                     color: $colorstandard;
@@ -102,13 +106,27 @@ $colorstandard : white;
             }
 
             #divsubmit {
+                text-align: center;
+
                 button {
+                    width: 50%;
+                    height: 38px;
                     cursor: pointer;
-                    background-color: $colorThree;
+                    background-image: -webkit-gradient(linear, left bottom, left top, from(#f2547e), to(#ac3645));
+                    border: 1px solid #f25a97;
+                    box-shadow: 1px 1px 0px rgba(218, 79, 128, 0.8), 2px 2px 0px rgba(218, 79, 128, 0.6), 3px 3px 0px rgba(218, 79, 128, 0.4), 4px 4px 0px rgba(218, 79, 128, 0.2);
+
+                    color: white;
+                    text-transform: uppercase;
+                    letter-spacing: 0.2em;
+                    font-family: 'Bellota';
+                    font-weight: 900;
 
                     &:hover {
-                        background-color: $colorOne;
+                        transition: all .2s ease-in-out;
+                        transform: scale(1.1);
                         opacity: 0.9;
+                        background-image: -webkit-gradient(linear, left bottom, left top, from(#f2547e), to(#ac3645));
                     }
                 }
 
@@ -139,10 +157,7 @@ $colorstandard : white;
                 resize: none;
             }
 
-            #submit {
-                width: 101%;
-                height: 38px;
-            }
+
 
             .none {
                 display: none;
@@ -167,6 +182,35 @@ $colorstandard : white;
                     height: 20px;
                     margin-right: 25px;
                 }
+            }
+
+            #honeypot {
+                display: none;
+            }
+
+            #errors {
+                display: none;
+                color: red;
+                font-size: 13px;
+                font-weight: 900;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+            }
+
+            #success {
+
+                color: green;
+                font-size: 15px;
+                font-weight: 900;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+            }
+
+            .classerror {
+                color: red;
+                font-size: 14px;
+                font-weight: 900;
+                padding-bottom: 15px;
             }
         }
 
@@ -257,5 +301,3 @@ $colorstandard : white;
         }
     }
 }
-
-@media screen and (max-width: 500px) {}

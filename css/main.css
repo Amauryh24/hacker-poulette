@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Bellota";
+  src: url(../fonts/bellota/Bellota-Regular.otf) format("truetype");
+}
+
 #contact {
   background-image: url("../images/raspberry-pi.jpg");
   background-size: cover;
@@ -6,6 +11,7 @@
   transition: 1s;
   -webkit-transition-timing-function: ease;
           transition-timing-function: ease;
+  font-family: 'Bellota';
 }
 
 #contact .main-container {
@@ -118,14 +124,32 @@
   opacity: 0.5;
 }
 
+#contact .main-container .content-form #divsubmit {
+  text-align: center;
+}
+
 #contact .main-container .content-form #divsubmit button {
+  width: 50%;
+  height: 38px;
   cursor: pointer;
-  background-color: #8a1f49;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#f2547e), to(#ac3645));
+  border: 1px solid #f25a97;
+  -webkit-box-shadow: 1px 1px 0px rgba(218, 79, 128, 0.8), 2px 2px 0px rgba(218, 79, 128, 0.6), 3px 3px 0px rgba(218, 79, 128, 0.4), 4px 4px 0px rgba(218, 79, 128, 0.2);
+          box-shadow: 1px 1px 0px rgba(218, 79, 128, 0.8), 2px 2px 0px rgba(218, 79, 128, 0.6), 3px 3px 0px rgba(218, 79, 128, 0.4), 4px 4px 0px rgba(218, 79, 128, 0.2);
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-family: 'Bellota';
+  font-weight: 900;
 }
 
 #contact .main-container .content-form #divsubmit button:hover {
-  background-color: #F2588E;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
   opacity: 0.9;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#f2547e), to(#ac3645));
 }
 
 #contact .main-container .content-form #inputfirstname,
@@ -151,11 +175,6 @@
   border: 2px solid white;
   margin: 4px 0;
   resize: none;
-}
-
-#contact .main-container .content-form #submit {
-  width: 101%;
-  height: 38px;
 }
 
 #contact .main-container .content-form .none {
@@ -186,6 +205,34 @@
   width: 20px;
   height: 20px;
   margin-right: 25px;
+}
+
+#contact .main-container .content-form #honeypot {
+  display: none;
+}
+
+#contact .main-container .content-form #errors {
+  display: none;
+  color: red;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+#contact .main-container .content-form #success {
+  color: green;
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+#contact .main-container .content-form .classerror {
+  color: red;
+  font-size: 14px;
+  font-weight: 900;
+  padding-bottom: 15px;
 }
 
 @media screen and (max-width: 840px) {

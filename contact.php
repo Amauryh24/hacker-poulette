@@ -1,6 +1,6 @@
 <?php
 session_start();
- ?>
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -11,12 +11,12 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/main.css">
     <link rel="icon" href="images/icons.png">
-    <title>Contact</title>
+    <title>Hacker-Poulette</title>
 </head>
 
 
 <body id="contact">
-   
+
     <div class="main-container">
         <div class="content">
             <h1>Raspberry Pi 4 </h1>
@@ -40,16 +40,34 @@ session_start();
         <div class="content-form">
             <p class="titleform">Contact us</p>
             <form action="post_contact.php" method="post">
+                <div id="honeypot">
+                    <input id="website" name="website" type="text" value="" />
+                </div>
                 <div id="divfirstname">
                     <label class="none" for="inputfirstname">Firstname :</label>
+
                     <input type="text" name="name" placeholder="  Firstname" id="inputfirstname"
-                        title="Enter Your Firstname">
+                        title="Enter Your Firstname"
+                        value="<?= isset($_SESSION['inputs']['name']) ? $_SESSION['inputs']['name'] : ''; ?>">
+                    <div class="classerror">
+                        <span
+                            title=" <?= isset($_SESSION['errors']['firstname']) ? $_SESSION['errors']['firstname'] : ''; ?>">
+                            <?= isset($_SESSION['errors']['firstname']) ? '<span>'. $_SESSION['errors']['firstname'] . '*</span>' : ''; ?>
+                        </span>
+                    </div>
                     <img src="./images/004-assistance.png" alt="image for the firsname" title="image for the firsname ">
                 </div>
                 <div>
                     <label class="none" for="inputlastname"> Lastname : </label>
-                    <input type="text" name="lastname" value="Doe" placeholder="  Lastname" id="inputlastname"
-                        title="Enter your Lastname">
+                    <input type="text" name="lastname" placeholder="  Lastname" id="inputlastname"
+                        title="Enter your Lastname"
+                        value="<?= isset($_SESSION['inputs']['lastname']) ? $_SESSION['inputs']['lastname'] : ''; ?>">
+                    <div class="classerror">
+                        <span
+                            title=" <?= isset($_SESSION['errors']['lastname']) ? $_SESSION['errors']['lastname'] : ''; ?>">
+                            <?= isset($_SESSION['errors']['lastname']) ? '<span>'. $_SESSION['errors']['lastname'] . '*</span>' : ''; ?>
+                        </span>
+                    </div>
                 </div>
                 <div id="gender">
 
@@ -106,15 +124,26 @@ session_start();
 
                 <div id="divemail">
                     <label class="none" for="inputmail"> Email</label>
-                    <input type="text" name="email" placeholder="  Email" value=" johnDoe@Becode.org" id="inputmail"
-                        title="Enter your email">
+                    <input type="text" name="email" placeholder="  Email" id="inputmail" title="Enter your email"
+                        value="<?= isset($_SESSION['inputs']['email']) ? $_SESSION['inputs']['email'] : ''; ?>">
+                    <div class="classerror">
+                        <span title=" <?= isset($_SESSION['errors']['email']) ? $_SESSION['errors']['email'] : ''; ?>">
+                            <?= isset($_SESSION['errors']['email']) ? '<span>'. $_SESSION['errors']['email'] . '*</span>' : ''; ?>
+                        </span>
+                    </div>
 
                 </div>
 
                 <div>
                     <label class="none" for="message">message :</label>
-                    <textarea name="message" placeholder=" Message" id="message"
-                        title="Enter your message"> Put your message here !</textarea>
+                    <textarea name="message" placeholder=" Put your message here !" id="message"
+                        title="Enter your message"><?= isset($_SESSION['inputs']['message']) ? $_SESSION['inputs']['message'] : ''; ?></textarea>
+                    <div class="classerror">
+                        <span
+                            title=" <?= isset($_SESSION['errors']['message']) ? $_SESSION['errors']['message'] : ''; ?>">
+                            <?= isset($_SESSION['errors']['message']) ? '<span>'. $_SESSION['errors']['message'] . '*</span>' : ''; ?>
+                        </span>
+                    </div>
 
 
 
@@ -123,23 +152,40 @@ session_start();
                     <button id="submit" type="submit" name="submit" value="validation"
                         title="form submissions">validation</button>
                 </div>
-                <div class="error">
+
+                <div id="errors">
                     <?php if (array_key_exists('errors', $_SESSION)):?>
-                    
+
                     <p>
                         <?= implode('<br>', $_SESSION['errors']); ?>
                     </p>
+                    <?php  endif; ?>
                 </div>
 
-        <?php unset($_SESSION['errors']); endif; ?>
+
+
+                <div id="success">
+                    <?php if (array_key_exists('success', $_SESSION)):?>
+
+                    <p>
+                        votre demande est envoyé
+                    </p>
+                    <?php  endif; ?>
+                </div>
+
+
 
 
             </form>
         </div>
-
     </div>
 
     <script src="js/script.js"></script>
 </body>
 
 </html>
+
+<?php
+unset($_SESSION['inputs']);
+unset($_SESSION['success']);
+unset($_SESSION['errors']);
