@@ -7,6 +7,8 @@ require 'PHPMailer/src/Exception.php';
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
 
+
+// sanitize
 $firstname = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
 $lastname = filter_var($_POST['lastname'], FILTER_SANITIZE_STRING);
 $subject = $_POST['subject'];
@@ -15,6 +17,8 @@ $message = filter_var($_POST['message'], FILTER_SANITIZE_STRING);
 
 $errors = [];
 
+
+// validation
 
 if ($firstname == "") {
     $errors['firstname'] = 'Veuillez remplir votre prénom';
@@ -29,58 +33,44 @@ if ($email == "" || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
 if ($message == "") {
     $errors['message'] = 'Veuillez remplir votre message';
 }
+
 session_start();
 
 if (!empty($errors)) {
     $_SESSION['errors'] = $errors;
     $_SESSION['inputs'] = $_POST;
     
-// header('Location: contact.php');
+    header('Location: contact.php');
 } else {
-    // $_SESSION['success'] = 1;
-    // header('Location: contact.php');
-    // var_dump($_SESSION);
-
-    // //Create a new PHPMailer instance
-    // $mail = new PHPMailer(true);
+    $_SESSION['success'] = 1;
+    header('Location: contact.php');
 
 
-    // $mail->IsSMTP();
-    // $mail->SMTPAuth = true;
-    // $mail->SMTPSecure = 'tls';
-    // $mail->Host = "smtp.gmail.com";
-    // $mail->Port = 587;
-    // $mail->IsHTML(true);
+    // Instantiation and passing `true` enables exceptions
+    $mail = new PHPMailer(true);
+    try {
+        //Server settings
+        // $mail->SMTPDebug = 2;                                       // Enable verbose debug output
+        $mail->isSMTP();                                            // Send using SMTP
+        $mail->Host       = 'smtp.gmail.com';                       // Set the SMTP server to send through
+        $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+        $mail->Username   = 'henrottayamaury@gmail.com';                     // SMTP username
+        $mail->Password   = 'hackerpoulette';                               // SMTP password
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
+        $mail->Port       = 587;                                    // TCP port to connect to
 
-    // //Username to use for SMTP authentication
-    // $mail->Username = "henrottayamaury@gmail.com";
-    // $mail->Password = "jenaimarre";
+        //Recipients
+        $mail->setFrom('henrottayamaury@gmail.com', 'amaury henrottay');
+        $mail->addAddress($email, $firstname . ' ' . $lastname);     // Add a recipient
 
-    // //Set who the message is to be sent from
-    // $mail->setFrom($email, $firstname . ' ' . $lastname);
-
-    // //Set who the message is to be sent to
-    // $mail->addAddress($email, 'amaury henrottay');
-    // //Set the subject line
-    // $mail->Subject = $subject;
-
-    // //convert HTML into a basic plain-text alternative body
-    // $mail->msgHTML($message);
-
-    // //Replace the plain text body with one created manually
-    // $mail->AltBody = 'This is a plain-text message body';
-
-    // //send the message, check for errors
-    // if (!$mail->send()) {
-    //     echo "Mailer Error: " . $mail->ErrorInfo;
-    // } else {
-    //     echo "Message sent!";
-
-    //     $_SESSION['success'] = 1;
-    //     echo('ça fonctionne');
-    //     // header('Location: contact.php');
-    // }
+        // Content
+        $mail->isHTML(true);                                  // Set email format to HTML
+        $mail->Subject = $subject;
+        $mail->Body    = $message;
+    
+        $mail->send();
+        echo 'Message has been sent';
+    } catch (Exception $e) {
+        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    }
 }
-
-var_dump($errors);
-die();
