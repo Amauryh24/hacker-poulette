@@ -14,6 +14,7 @@ $lastname = filter_var($_POST['lastname'], FILTER_SANITIZE_STRING);
 $subject = $_POST['subject'];
 $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
 $message = filter_var($_POST['message'], FILTER_SANITIZE_STRING);
+$honeypot = $_POST['website'];
 
 $errors = [];
 
@@ -34,16 +35,20 @@ if ($message == "") {
     $errors['message'] = 'Veuillez remplir votre message';
 }
 
+if (!empty($honeypot)) {
+    $errors['honeypot'] = "j'aime pas les bots";
+}
+
 session_start();
 
 if (!empty($errors)) {
     $_SESSION['errors'] = $errors;
     $_SESSION['inputs'] = $_POST;
     
-    header('Location: contact.php');
+    header('Location: index.php');
 } else {
     $_SESSION['success'] = 1;
-    header('Location: contact.php');
+    header('Location: index.php');
 
 
     // Instantiation and passing `true` enables exceptions

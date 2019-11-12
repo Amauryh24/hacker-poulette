@@ -152,6 +152,12 @@ session_start();
                     <button id="submit" type="submit" name="submit" value="validation"
                         title="form submissions">validation</button>
                 </div>
+                <div class="classerror">
+                    <span
+                        title=" <?= isset($_SESSION['errors']['honeypot']) ? $_SESSION['errors']['honeypot'] : ''; ?>">
+                        <?= isset($_SESSION['errors']['honeypot']) ? '<span>'. $_SESSION['errors']['honeypot'] . '*</span>' : ''; ?>
+                    </span>
+                </div>
 
                 <div id="errors">
                     <?php if (array_key_exists('errors', $_SESSION)):?>
